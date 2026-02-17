@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import UserCard from "./UserCard";
+import "./App.css";
 
 function App() {
+  const users = [
+    {
+      id: 1,
+      name: "Ashish Pal",
+      profession: "Software Engineer Student",
+      location: "Delhi"
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container" style={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: "100vh" }}>
+      <h1 className="title">User Cards</h1>
+
+      <div className="card-container">
+        {users.map((user) => (
+          <UserCard key={user.id} user={user} />
+        ))}
+      </div>
     </div>
   );
 }
